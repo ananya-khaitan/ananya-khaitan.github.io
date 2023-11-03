@@ -6,7 +6,6 @@ body{
 main{
     width: 100%;
     height: 100%;
-   
 }
 #calc{
     background-color: rgb(117, 116, 116);
@@ -16,7 +15,7 @@ main{
     margin-right: auto;
     margin-top: 5%;
     padding: 1% 0 1% 0;
-    max-width: 30rem;
+    max-width: 25rem;
     align-items: center;
 }
 #calc .output{
@@ -89,8 +88,66 @@ main{
         width: 80%;
     }
 }
-
-@media screen and (max-width:576px){
+@media screen and (max-width:768px){
+    #calc{
+        height: 70%;
+    }
+    #button-fact-l{
+        display: none;
+    }
+    #button-pow-l{
+        display: none;
+    }
+    #button-sqrt-l{
+        display: none;
+    }
+    #button-pi-l{
+        display: none;
+    }
+    #button-e-l{
+        display: none;
+    }
+    #button-fact-m{
+        display: grid;
+    }
+    #button-pow-m{
+        display: grid;
+    }
+    #button-sqrt-m{
+        display: grid;
+    }
+    #button-pi-m{
+        display: grid;
+    }
+    #button-e-m{
+        display: grid;
+    }
+    #calc .grid-container{
+   
+        padding: 0.5rem;
+     
+        display: grid;
+        grid-gap: 10px;
+        border-radius: .5rem;
+        grid-template-columns: auto auto auto auto;
+        margin: 5% 10% 5% 10%;
+        background-color:  rgb(142, 142, 142);
+    }
+    
+}
+@media screen and (max-width:575.98px){
+ body{
+    height: 100vh;
+    padding: 0;
+ }
+    main{
+    height: 100vh;
+    margin-top: 0;
+  }
+  #calc{
+    height: 80%;
+    width: 60%;
+  }
     #button-fact-l{
         display: none;
     }

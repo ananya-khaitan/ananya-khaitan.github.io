@@ -107,19 +107,19 @@ main{
         display: none;
     }
     #button-fact-m{
-        display: show;
+        display: grid;
     }
     #button-pow-m{
-        display: show;
+        display: grid;
     }
     #button-sqrt-m{
-        display: show;
+        display: grid;
     }
     #button-pi-m{
-        display: show;
+        display: grid;
     }
     #button-e-m{
-        display: show;
+        display: grid;
     }
     #calc .grid-container{
    

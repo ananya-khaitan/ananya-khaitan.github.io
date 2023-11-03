@@ -36,15 +36,13 @@ document.body.addEventListener("click", function(event) {
         expression += str;
             result.textContent+='π';break;
         }
-        
-       
     }
-    if (event.target.classList.contains("root")) {
+   else if (event.target.classList.contains("root")) {
         // Check if the clicked element is a number or operator
         result.textContent = result.textContent + event.target.textContent;
-
+        expression+= event.target.textContent;
     }
-    if (event.target.classList.contains("fact")) {
+    else  if (event.target.classList.contains("fact")) {
         // Check if the clicked element is a number or operator
         result.textContent = result.textContent + '!';
         var p="",i=2;
@@ -68,9 +66,10 @@ document.body.addEventListener("click", function(event) {
         expression=expression.slice(0,-(p.length));
         expression+=f;
     }
-    if (event.target.classList.contains("pow")) {
+    else if (event.target.classList.contains("pow")) {
         // Check if the clicked element is a number or operator
         result.textContent = result.textContent + event.target.textContent;
+        expression += event.target.textContent;
     }
     
     
@@ -79,6 +78,17 @@ document.body.addEventListener("click", function(event) {
     else if(event.target.classList.contains("equals")) {
         // Check if the clicked element is an equals 
         try {
+            for(i=0;i<result.textContent.length;i++)
+            {
+                if((result.textContent.charAt(i)=="e" || result.textContent.charAt(i)=="π") && ((parseInt(result.textContent.charAt(i+1))>=0 && parseInt(result.textContent.charAt(i+1))<=9)))
+                {
+                    result.textContent = "Error";
+                    expression= "";
+                    result.textContent = "Error";
+                    break;
+
+                }
+            }
             if(result.textContent.indexOf("^")>0){            var a="",b="",c=1,d=1,index="";
             result.textContent = result.textContent.trim();
             index=result.textContent.indexOf("^");
@@ -97,7 +107,8 @@ document.body.addEventListener("click", function(event) {
                     result.textContent = "Error";
                     expression= "";
                 }
-            expression=expression.substring(0,index-a.length)+Math.pow(parseInt(a),parseInt(b))+expression.substring(index+b.length);
+            expression=expression.replace(a+"^"+b,Math.pow(parseInt(a),parseInt(b)));
+            console.log(expression);
             }
             if(result.textContent.indexOf("√")>0){
             var a="",b="",c=1,d=1,index="";
@@ -115,8 +126,14 @@ document.body.addEventListener("click", function(event) {
                     result.textContent = "Error";
                     expression= "";
                 }
-            expression=expression.substring(0,index)+Math.sqrt(parseInt(b))+expression.substring(index+b.length);
-            }
+                if(index>0 && parseInt(result.textContent.charAt(index-1))>=0 && parseInt(result.textContent.charAt(index-1))<=9){
+                    expression=expression.replace("√"+b,"*"+Math.sqrt(parseInt(b)));
+                }
+                else{
+            expression=expression.replace("√"+b,Math.sqrt(parseInt(b)));
+                }
+            console.log(expression);
+        }
             result.textContent = eval(expression);
         } catch (error) {
             result.textContent = "Error";

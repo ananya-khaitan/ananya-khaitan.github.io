@@ -5,7 +5,7 @@ body{
 }
 main{
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 #calc{
     background-color: rgb(117, 116, 116);
@@ -18,6 +18,7 @@ main{
     max-width: 25rem;
     align-items: center;
 }
+
 #calc .output{
     border-radius: .5rem;
     min-height: 3rem;
@@ -83,6 +84,10 @@ main{
 #button-e-m{
     display: none;
 }
+@media screen and (max-width: 1200px){
+    #calc{font-size: 1rem;
+    }
+}
 @media screen and (max-width:992px){
     #calc{
         width: 80%;
@@ -90,7 +95,8 @@ main{
 }
 @media screen and (max-width:768px){
     #calc{
-        height: 70%;
+        height: auto;
+        width: 60vw;
     }
     #button-fact-l{
         display: none;
@@ -130,7 +136,7 @@ main{
         grid-gap: 10px;
         border-radius: .5rem;
         grid-template-columns: auto auto auto auto;
-        margin: 5% 10% 5% 10%;
+     
         background-color:  rgb(142, 142, 142);
     }
     
@@ -145,7 +151,7 @@ main{
     margin-top: 0;
   }
   #calc{
-    height: 80%;
+    height: auto;
     width: 60%;
   }
     #button-fact-l{
@@ -188,6 +194,9 @@ main{
         grid-template-columns: auto auto auto auto;
         margin: 5% 10% 5% 10%;
         background-color:  rgb(142, 142, 142);
+    }
+    button{
+        font-size: .5rem;
     }
     
 }
